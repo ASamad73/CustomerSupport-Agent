@@ -116,8 +116,9 @@ Each subsequent call reuses the same `config` so the agent picks up where the co
 
 | File | Responsibility |
 |---|---|
-| State schema | Defines `SupportState`, tracking the current step and collected answers |
-| Tools | The workflow tools, including the state transition and correction tools |
-| Prompts and step configuration | Per step prompts and the `STEP_CONFIG` lookup table |
-| Middleware | `apply_step_config`, which applies the correct prompt and tools each turn |
-| Agent setup | Creates the agent with the state schema, middleware, and checkpointer |
+| `state.py` | Defines `SupportState`, tracking the current step and collected answers |
+| `tools.py` | The workflow tools, including the state transition and correction tools |
+| `configurations.py` | Per step prompts and the `STEP_CONFIG` lookup table |
+| `main.py` | Middleware (`apply_step_config`) and agent setup, creating the agent with the state schema, middleware, and checkpointer |
+| `test.py` | Runs through the workflow across multiple turns to test it end-to-end |
+| `requirements.txt` | Python dependencies |
